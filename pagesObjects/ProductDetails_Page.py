@@ -14,6 +14,7 @@ class ProductDetails_Page(BasePage):
     title_page_item = (AppiumBy.ID, "com.saucelabs.mydemoapp.android:id/productTV")
     product_highlights_id = (AppiumBy.ID, "com.saucelabs.mydemoapp.android:id/productHeightLightsTV")
     product_highlights_description = (AppiumBy.ID, "com.saucelabs.mydemoapp.android:id/descTV")
+    star_button = (AppiumBy.ID, "com.saucelabs.mydemoapp.android:id/start3IV")
     #methodes
 
     def click_on_add_to_cart(self):
@@ -38,3 +39,6 @@ class ProductDetails_Page(BasePage):
         self.scroller_to_element("carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.")
         item_description = self.driver.find_element(*ProductDetails_Page.product_highlights_description)
         assert "carry" in item_description.text
+
+    def click_on_star_button(self):
+        self.click_when_visible(ProductDetails_Page.star_button)
